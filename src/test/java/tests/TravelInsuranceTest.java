@@ -17,16 +17,21 @@ public class TravelInsuranceTest {
 
 
     @BeforeClass
-    public void setup() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-        driver.get("https://digital.harel-group.co.il/travel-policy");
-        
-        travelPage = new TravelPolicyPage(driver);
-    }
+public void setup() {
+    WebDriverManager.chromedriver().setup();
+    ChromeOptions options = new ChromeOptions();
+    
+    
+    options.addArguments("--headless=new"); 
+    options.addArguments("--no-sandbox"); 
+    options.addArguments("--disable-dev-shm-usage"); 
+    options.addArguments("--window-size=1920,1080"); 
 
+    driver = new ChromeDriver(options);
+    driver.manage().window().maximize();
+    driver.get("https://digital.harel-group.co.il/travel-policy");
+    travelPage = new TravelPolicyPage(driver);
+}
     @Test
     public void testInsurancePurchaseFlow() {
         travelPage.startNewPurchase();
