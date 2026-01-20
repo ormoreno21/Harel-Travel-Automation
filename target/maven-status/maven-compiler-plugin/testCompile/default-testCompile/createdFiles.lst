@@ -1,0 +1,3 @@
+tests\TravelInsuranceTest.class
+pages\BasePage.class
+pages\TravelPolicyPage.class
